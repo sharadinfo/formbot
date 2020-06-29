@@ -1,0 +1,88 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - inform
+  - thankyou
+  - out_of_scope
+
+entities:
+  - confirm_name
+  - name
+  - issue
+  - priority
+  - time
+  - mobile
+  - email
+
+responses:
+  utter_greet:
+  - text: "Hi! Its complaint Drpartment, Do you want register your complaint?"
+  utter_goodbye:
+  - text: "See you tomorrow. Bye!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Synnefo."
+  
+  utter_ask_confirm_name:
+  - text: please enter your user name 👤!
+  utter_ask_name:
+  - text: please enter your name 👤
+  utter_ask_issue:
+  - text: "please Enter your facing issue or complaint Name?"
+  utter_ask_time:
+  - text: "Since when have you been facing this issue?"
+  utter_ask_priority:
+  - text: "What is your priority level of issue?"
+    buttons:
+      - title: "low"
+        payload: '/inform{"priority": "low"}'
+      - title: "medium"
+        payload: '/inform{"priority": "medium"}'
+      - title: "high"
+        payload: '/inform{"priority": "high"}'
+  utter_ask_mobile:
+  - text: "please enter your mobile number we will get back to you 📱?"
+  utter_ask_email:
+  - text: "please Enter you email address 📧"
+  utter_slots_values:
+  - text: "You've submitted the following answers:\n
+            - Name?: {confirm_name}\n
+            - Your Name: {name}\n
+            - Issue Name: {issue}\n
+            - Facing Issue time?: {time}\n
+            - priority level: {priority}\n
+            - mobile: {mobile}\n
+            - email address:{email}"
+  utter_no_worries:
+  - text: "No problem :)"
+  utter_ask_continue:
+  - text: "Sorry, I don't quite understand. Do you want to continue?"
+  utter_wrong_mobile:
+  - text: "mobile number must be 10 digit only 📱"
+  utter_wrong_email:
+  - text: "Please Enter Valid Email address 📧"
+slots:
+  confirm_name:
+    type: unfeaturized
+  name:
+    type: unfeaturized
+  issue:
+    type: unfeaturized
+  time:
+    type: unfeaturized
+  priority:
+    type: unfeaturized
+  mobile:
+    type: unfeaturized
+  email:
+    type: unfeaturized
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+
+forms:
+  - complaint_form
